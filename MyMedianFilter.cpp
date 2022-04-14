@@ -52,7 +52,7 @@ void myMedianFilter(InputArray input, OutputArray output, int windowSize) {
                 }
             }
             std::sort(pixels.begin(), pixels.end());
-            uchar median = pixels[windowSize/2];
+            uchar median = pixels[pixels.size()/2];
             dst.at<uchar>(y,x) = median;
         }
     }
@@ -63,7 +63,7 @@ int main() {
     Mat img = imread("/Users/donghwan/Desktop/3-1/영상처리/MedianFilterInput.png", 0);
     Mat output;
     Mat standard;
-    myMedianFilter(img, output, 3);
+    myMedianFilter(img, output, 5);
     medianBlur(img, standard, 5);
     
     imshow("MedianFilterInput", img);
